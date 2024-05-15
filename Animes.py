@@ -5,6 +5,7 @@ from selenium import webdriver
 
 episodes = []
 
+#Class to hold episode details
 class Episode:
     def __init__(self,name,time,episode="placeHolder",link="placeHolder"):
         self.name = name
@@ -16,12 +17,13 @@ class Episode:
 
 
 
-
+#Getting episodes from thefile
 def fetchEpisodes():
     with open("daily.txt","r") as f:
         episodes = []
         for line in f:
             line = line.strip().split(" ")
+            #Storing episodes time as datetime
             epTime = datetime.strptime(line[1], "%I:%M%p").time()
             episodes.append(Episode(line[0],epTime))
     return episodes
