@@ -30,10 +30,6 @@ def fetchEpisodes():
 
 
 
-
-
-
-
 #Fetching from internet and saving
 def fetchRoll():
     #Initializing the webdriver
@@ -66,7 +62,7 @@ def fetchRoll():
             f.write(episode.name + " " + episode.time + "\n")
 
     today = open("mark.txt","r").readline()
-    if(today != str(date.today())):
+    if(today.strip() != str(date.today())):
         open("mark.txt","w").write(str(date.today()))
 
 
